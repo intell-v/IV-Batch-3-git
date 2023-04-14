@@ -11,5 +11,6 @@ http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/htt
 	<flow name="iv-batch-3-gitFlow" doc:id="baa25584-971f-4d92-8710-45b82fc1cb99" >
 		<http:listener doc:name="Listener" doc:id="cfa1007d-cf2c-4d03-8c42-2fb30d55a1f3" config-ref="HTTP_Listener_config" path="/calc"/>
 		<set-payload value="#[output json --- message]" doc:name="Set Payload" doc:id="de4db3b7-805a-4255-8863-31c3b5907fac" />
+		<logger level="INFO" doc:name="Logger" doc:id="641aba53-b6e0-4004-80fd-ccf607aa6b74" message="#[payload]"/>
 	</flow>
 </mule>
