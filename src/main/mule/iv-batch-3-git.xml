@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:file="http://www.mulesoft.org/schema/mule/file"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="bda9e5b1-571b-47d3-9d46-f8e07960adf8" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="iv-batch-3-gitFlow" doc:id="baa25584-971f-4d92-8710-45b82fc1cb99" >
+		<http:listener doc:name="Listener" doc:id="cfa1007d-cf2c-4d03-8c42-2fb30d55a1f3" config-ref="HTTP_Listener_config" path="/calc"/>
+		<set-payload value="#[output json --- message]" doc:name="Set Payload" doc:id="de4db3b7-805a-4255-8863-31c3b5907fac" />
+	</flow>
+</mule>
